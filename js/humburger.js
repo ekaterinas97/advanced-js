@@ -9,16 +9,16 @@ class Param {
 }
 
 class Hamburger {
-    constructor(size, stuffing, topings) {
+    constructor(size, stuffing, toppings) {
         this.size = new Param(this._select(size));
         this.stuffing = new Param(this._select(stuffing));
-        this.topings = new Param(this._getTopings(topings));
+        this.topings = this._getTopings(toppings);
     }
     _select(name) {
         return document.querySelector(`input[name=${name}]:checked`);
     }
     _selectAll(name) {
-        return [...document.querySelectorAll(`input[name=${name}]:checked`)];
+        return document.querySelectorAll(`input[name=${name}]:checked`);
     }
     _getTopings(name) {
         let result = [];

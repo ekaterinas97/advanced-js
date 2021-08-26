@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1a1f78895e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Страница заказа</title>
@@ -59,14 +61,14 @@
                     <div class="order__title">Дополнительно:</div>
                     <div class="order__item">
                         <label class="check">
-                            <input class="check__input" type="checkbox" name="topings" id="" value="spices" data-price="15" data-calories="0">
+                            <input class="check__input" type="checkbox" name="toppings" id="" value="spices" data-price="15" data-calories="0">
                             <span class="check__box"></span>
                             С приправой (+15 рублей, +0 калорий)
                         </label>
                     </div>
                     <div class="order__item">
                         <label class="check">
-                            <input class="check__input" type="checkbox" name="topings" id="" value="sauce " data-price="20" data-calories="5">
+                            <input class="check__input" type="checkbox" name="toppings" id="" value="sauce" data-price="20" data-calories="5">
                             <span class="check__box"></span>
                             С соусом (+20 рублей, +5 калорий)
                         </label>
@@ -74,7 +76,7 @@
                     <button type="button">Заказать</button>
                 </form>
                 <p class="order__info">
-                    Сумма заказа:<span class="totalSum"></span><br> Количество калорий: <span class="totalCalories"></span>
+                    Сумма заказа:<span class="total-price"></span><br> Количество калорий: <span class="totalCalories"></span>
                 </p>
             </div>
 
@@ -85,9 +87,9 @@
     <script>
         window.onload = () => {
             document.querySelector('button').addEventListener('click', function() {
-                let hamburger = new Hamburger('size', 'stuffing', 'topings');
+                let hamburger = new Hamburger('size', 'stuffing', 'toppings');
                 console.log(hamburger);
-                humburger.showSum('totalSum', 'totalCalories');
+                hamburger.showSum('.total-price', '.totalCalories');
             });
         }
     </script>
