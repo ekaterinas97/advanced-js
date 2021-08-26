@@ -186,6 +186,96 @@ a {
     box-shadow: 0 0 8px #fff;
 }
 
+.totalSum-block {
+    font-size: 20px;
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
+
+.totalSum {
+    font-size: 28px;
+    font-weight: 700;
+    margin-left: 15px;
+}
+
+
+/* Стили для страницы заказа гамбургера */
+
+.order__title {
+    font-size: 20px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.radio {
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.check {
+    padding-left: 22px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.radio__input,
+.check__input {
+    position: absolute;
+    appearance: none;
+}
+
+.radio__box {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    margin-left: -16px;
+}
+
+.check__box {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #555;
+    margin-left: -22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check__input:checked+.check__box {
+    background-color: #F16D7F;
+}
+
+.check__input:checked+.check__box::before {
+    content: "\f00c";
+    display: block;
+    font-family: "FontAwesome";
+    font-size: 10px;
+}
+
+.radio__input:checked+.radio__box::before {
+    content: "";
+    background-color: #F16D7F;
+    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.order__inner {
+    display: flex;
+    margin-bottom: 25px;
+}
+
 .footer {
     background-color: #222224;
     padding: 24px 0;
