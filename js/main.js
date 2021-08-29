@@ -1,62 +1,30 @@
 "use strict";
+const API = "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses";
 class ProductList {
     constructor(container = '.products__inner') {
         this.container = container;
         this.products = [];
-        this._fetchProducts();
-        this.render(); //вывод товаров на страницу
+        this._getProducts()
+            .then(data => {
+                this.products = data;
+                this.render(); //вывод товаров на страницу
+                this.sumProducts();
+            });
     }
-    _fetchProducts() {
-        this.products = [{
-                id: 1,
-                title: "Product 1",
-                description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi",
-                image: 'images/product-1.jpg',
-                price: 200
-            },
-            {
-                id: 2,
-                title: "Product 2",
-                description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi",
-                image: 'images/product-2.jpg',
-                price: 300
-            },
-            {
-                id: 3,
-                title: "Product 3",
-                description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi",
-                image: 'images/product-3.jpg',
-                price: 350
-            },
-            {
-                id: 4,
-                title: "Product 4",
-                description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi",
-                image: 'images/product-4.jpg',
-                price: 350
-            },
-            {
-                id: 5,
-                title: "Product 5",
-                description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi",
-                image: 'images/product-5.jpg',
-                price: 450
-            },
-            {
-                id: 6,
-                title: "Product 6",
-                description: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi",
-                image: 'images/product-6.jpg',
-                price: 550
-            },
-        ]
-    }
+
     render() {
         const block = document.querySelector(this.container);
         for (let product of this.products) {
             const item = new ProductItem(product);
-            block.insertAdjacentHTML("afterbegin", item.render());
+            block.insertAdjacentHTML("beforeend", item.render());
         }
+    }
+    _getProducts() {
+        return fetch(`${API}/catalogData.json`)
+            .then(result => result.json())
+            .catch(error => {
+                console.log(error)
+            });
     }
     sumProducts() {
         let totalSum = 0;
@@ -67,20 +35,19 @@ class ProductList {
     }
 }
 class ProductItem {
-    constructor(product) {
-        this.title = product.title;
-        this.id = product.id;
-        this.description = product.description;
+    constructor(product, image = "images/product-1.jpg") {
+        this.product_id = product.id_product;
+        this.product_name = product.product_name;
         this.price = product.price;
-        this.image = product.image;
+        this.image = image;
     }
     render() {
         return `<div class="products__item">
                 <a href="product.html" class="products__link">  
                     <img src="${this.image}" alt="" class="products__img">
                     <div class="products__info">
-                        <h3 class="products__heading">${this.title}</h3>
-                        <div class="products__descr">${this.description}</div>
+                        <h3 class="products__heading">${this.product_name}</h3>
+                        <div class="products__descr"></div>
                         <div class="products__price">${this.price}$</div>
                     </div>
                 </a>
@@ -91,6 +58,65 @@ class ProductItem {
     }
 
 }
+class Basket {
+    constructor(container = ".cart__inner") {
+        this.container = container;
+        this.products = [];
+        this._clickBasket();
+        this._getBasketItem()
+            .then(data => {
+                this.products = data.contents;
+                this.render();
+            });
+    }
+
+    _getBasketItem() {
+        return fetch(`${API}/getBasket.json`)
+            .then(result => result.json())
+            .catch(error => {
+                console.log(error);
+            })
+    }
+    render() {
+        const block = document.querySelector(this.container);
+        for (let product of this.products) {
+            const productObj = new BasketItem();
+            block.insertAdjacentHTML("beforeend", productObj.render(product));
+
+        }
+    }
+
+
+    _clickBasket() {
+        document.querySelector('.cart-btn').addEventListener('click', () => {
+            document.querySelector(this.container).classList.toggle('invisible');
+        });
+    }
+}
+class BasketItem {
+    render(product, img = "images/cart-1.jpg") {
+        return `<div class="cart__item" data-id="${product['id_product']}">
+        <a href="#" class="cart__link">
+            <div class="cart__img">
+                <img src="${img}" alt="Женская футболка">
+            </div>
+            <div class="cart__item-info">
+                <p class="cart__item-title">${product.product_name}</p>
+                <div class="cart__item-details">
+                    <div class="cart__item-count">${product.quantity}</div>
+                    <span>x</span>
+                    <div class="cart__item-price">$${product.price}</div>
+                </div>
+            </div>
+            <button class="cart__item-delete">
+                <i class="fas fa-times-circle"></i>
+                <span class="visually-hidden">Удалить товар</span>
+            </button>
+        </a>
+    </div>`
+    }
+}
 
 const list = new ProductList();
+const basket = new Basket();
 list.sumProducts();
