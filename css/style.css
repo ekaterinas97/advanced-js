@@ -1,0 +1,348 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.invisible {
+    display: none;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.header {
+    padding: 18px 0;
+    background-color: #222;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-btn {
+    margin-left: auto;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    /* outline: 1px solid tomato; */
+    color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cart-btn::after {
+    content: "\f07a";
+    font-family: "FontAwesome";
+    font-size: 24px;
+    padding: 4px;
+    transition: all .3s ease-in;
+}
+
+.cart-btn:hover::after {
+    color: #F16D7F;
+}
+
+.cart-block {
+    position: relative;
+}
+
+.cart__inner {
+    width: 262px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ececec;
+    position: absolute;
+    top: 45px;
+    right: -30px;
+    z-index: 2;
+}
+
+.cart__inner::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-left: 1px solid #c0c0c0;
+    border-top: 1px solid #c0c0c0;
+    background-color: #fff;
+    position: absolute;
+    top: -7px;
+    right: 38px;
+    transform: rotate(45deg);
+}
+
+.cart__link {
+    padding: 21px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.cart__img {
+    margin-right: 14px;
+}
+
+.cart__item-details {
+    display: flex;
+}
+
+.cart__item-delete {
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.cart__item-delete .fa-times-circle {
+    font-size: 16px;
+    color: #c0c0c0;
+}
+
+.cart__item-delete:hover .fa-times-circle {
+    color: #555;
+}
+
+.products {
+    padding: 60px 0;
+}
+
+.products__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.products__item {
+    position: relative;
+    width: calc((100% - 30px*2)/3);
+    margin-bottom: 30px;
+    background-color: #f8f8f8;
+    transition: all .3s ease-out;
+}
+
+.products__item:hover {
+    box-shadow: 6px 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+.products__item:hover .products__img {
+    transition: all .2s ease-in;
+    filter: brightness(30%);
+}
+
+.products__item:hover .add-to-cart {
+    display: flex;
+}
+
+.products__link {
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.products__info {
+    padding: 25px 28px 20px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.products__heading {
+    font-size: 13px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 12px;
+}
+
+.products__descr {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #5D5D5D;
+    flex: 1;
+    margin-bottom: 18px;
+}
+
+.products__price {
+    font-size: 16px;
+    line-height: 19px;
+    color: #F16D7F;
+}
+
+.add-to-cart {
+    display: none;
+    position: absolute;
+    top: 168px;
+    width: 100%;
+    justify-content: center;
+}
+
+.add-btn {
+    text-decoration: none;
+    border: 1px solid #fff;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    padding: 0 16px 0 0;
+    display: flex;
+    align-items: center;
+    transition: all .3s ease-out;
+}
+
+.add-btn::before {
+    content: "\f07a";
+    font-family: "FontAwesome";
+    font-size: 20px;
+    display: block;
+    margin-right: 11px;
+    padding: 11px 0 8px 13px;
+}
+
+.add-btn:hover {
+    box-shadow: 0 0 8px #fff;
+}
+
+.totalSum-block {
+    font-size: 20px;
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
+
+.totalSum {
+    font-size: 28px;
+    font-weight: 700;
+    margin-left: 15px;
+}
+
+
+/* Стили для страницы заказа гамбургера */
+
+.order__title {
+    font-size: 20px;
+    font-weight: 300;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.radio {
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.check {
+    padding-left: 22px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.radio__input,
+.check__input {
+    position: absolute;
+    appearance: none;
+}
+
+.radio__box {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    margin-left: -16px;
+}
+
+.check__box {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #555;
+    margin-left: -22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check__input:checked+.check__box {
+    background-color: #F16D7F;
+}
+
+.check__input:checked+.check__box::before {
+    content: "\f00c";
+    display: block;
+    font-family: "FontAwesome";
+    font-size: 10px;
+}
+
+.radio__input:checked+.radio__box::before {
+    content: "";
+    background-color: #F16D7F;
+    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.order__inner {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.footer {
+    background-color: #222224;
+    padding: 24px 0;
+}
