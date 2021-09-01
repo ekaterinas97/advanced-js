@@ -26,7 +26,7 @@ class Validator {
             error.remove();
         }
 
-        let formFields = document.getElementById(this.form).querySelectorAll('input');
+        let formFields = [...document.getElementById(this.form).querySelectorAll('input')];
         for (let field of formFields) {
             this._validate(field);
         }
@@ -45,12 +45,14 @@ class Validator {
         }
     }
     _addErrorMsg(field) {
-        let error = `<span class="${this.errorClass}">${this.errors[field.name]}</span>`;
+        let error = `<div class="${this.errorClass}">${this.errors[field.name]}</div>`;
         field.parentNode.insertAdjacentHTML("afterend", error);
     }
     _watchField(field) {
         field.addEventListener('input', () => {
-            let error = field.parentNode.querySelector(`.${this.errorClass}`);
+            // let error = field.parentNode.querySelector(`.${this.errorClass}`);
+            let error = field.parentNode.nextElementSibling;
+            console.log(error);
             if (this.patterns[field.name].test(field.value)) {
                 field.classList.remove('invalid');
                 field.classList.add('valid');
@@ -60,9 +62,9 @@ class Validator {
             } else {
                 field.classList.remove('valid');
                 field.classList.add('invalid');
-                // if (!error) {
-                //     this._addErrorMsg(field);
-                // }
+                if (!error) {
+                    this._addErrorMsg(field);
+                }
             }
         });
     }

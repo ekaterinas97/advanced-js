@@ -412,6 +412,7 @@ a {
 }
 
 .error-msg {
+    font-size: 12px;
     color: tomato;
     margin-bottom: 20px;
 }
@@ -421,6 +422,6 @@ a {
 }
 
 .valid {
-    border: 2px solid green;
+    box-shadow: 0 0 0 2px rgb(36, 110, 36);
     color: green;
 }
