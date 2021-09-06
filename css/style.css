@@ -395,6 +395,10 @@ a {
     border: 1px solid #c0c0c0;
 }
 
+.form__field:-internal-autofill-selected {
+    background-color: #fff;
+}
+
 .form__field:focus {
     box-shadow: 0 0 0 2px #F16D7F;
     outline: none;

@@ -52,7 +52,6 @@ class Validator {
         field.addEventListener('input', () => {
             // let error = field.parentNode.querySelector(`.${this.errorClass}`);
             let error = field.parentNode.nextElementSibling;
-            console.log(error);
             if (this.patterns[field.name].test(field.value)) {
                 field.classList.remove('invalid');
                 field.classList.add('valid');
