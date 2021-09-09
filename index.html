@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1a1f78895e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
-    <title>Homework-5</title>
+    <title>Homework-6</title>
 </head>
 
 <body>
@@ -18,38 +18,13 @@
                 <div class="header__inner">
                     <a href="#" class="logo">Shop</a>
                     <div class="header__search">
-                        <form action="#" class="search-form" @submit.prevent="filterProducts">
-                            <input type="text" v-model="searchValue">
-                            <button type="submit">Search</button>
-                        </form>
+                        <filter-products></filter-products>
                     </div>
                     <div class="cart-block">
                         <button class="cart-btn" type="button" @click="showCart=!showCart">
                             <span class="visually-hidden">Корзина</span>
                         </button>
-                        <div class="cart__inner" v-show="showCart">
-                            <p v-if="!cartItems.length">Cart is empty!</p>
-                            <div class="cart__item" v-for="product of cartItems">
-                                <a href="#" class="cart__link">
-                                    <div class="cart__img">
-                                        <img :src="imgCart" alt="">
-                                    </div>
-                                    <div class="cart__item-info">
-                                        <p class="cart__item-title">{{ product.product_name }}</p>
-                                        <div class="cart__item-details">
-                                            <div class="cart__item-count">{{ product.quantity }}</div>
-                                            <span>x</span>
-                                            <div class="cart__item-price">{{ product.price }}</div>
-                                        </div>
-                                        <div class="cart__total-price">{{ product.quantity * product.price }}</div>
-                                    </div>
-                                    <button class="cart__item-delete" @click="removeProduct(product)">
-                                        <!-- <i class="fas fa-times-circle"></i> -->
-                                        <span class="visually-hidden">Удалить товар</span>
-                                    </button>
-                                </a>
-                            </div>
-                        </div>
+                        <cart :cart-items="cartItems" :img="imgCart" :visible="showCart"></cart>
 
                     </div>
                 </div>
@@ -58,20 +33,7 @@
         <main>
             <section class="products">
                 <div class="container">
-                    <div class="products__inner">
-                        <div class="products__item" v-for="product of filtered">
-                            <img :src="imgCatalog" alt="">
-                            <div class="products__info">
-                                <h2 class="products__heading">{{ product.product_name }}</h2>
-                                <span class="products__price">{{ product.price }}$</span>
-                                <button @click="addProduct(product)">Купить</button>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="totalSum-block">
-                        Суммарная стоимость всех товаров:
-                        <span class="totalSum"></span>
-                    </p>
+                    <products :products="filtered" :img="imgCatalog"></products>
                 </div>
             </section>
         </main>
@@ -83,6 +45,9 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="js/ProductsComponent.js"></script>
+    <script src="js/CartComponent.js"></script>
+    <script src="js/FilterComponent.js"></script>
     <script src="js/main.js"></script>
 </body>
 
