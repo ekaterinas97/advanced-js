@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1a1f78895e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Form Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="#" class="form" id="myForm">
+            <div class="field-container">
+                <div class="field-wrapper">
+                    <input class="form__field" name="name" id="name" type="text">
+                    <label for="name" class="form__label">Имя</label>
+                </div>
+            </div>
+            <div class="field-container">
+                <div class="field-wrapper">
+                    <input class="form__field" name="phone" id="phone" type="text">
+                    <label for="phone" class="form__label">Телефон</label>
+                </div>
+            </div>
+            <div class="field-container">
+                <div class="field-wrapper">
+                    <input class="form__field" name="email" id="email" type="email">
+                    <label for="email" class="form__label">Email</label>
+                </div>
+            </div>
+            <button type="submit" class="form__btn">Отправить</button>
+        </form>
+    </div>
+</body>
+<script src="js/Validator.js"></script>
+<script>
+    window.onload = () => {
+        document.querySelector('#myForm').addEventListener('submit', (e) => {
+            let valid = new Validator('myForm');
+            if (!valid.valid) {
+                e.preventDefault();
+            }
+        });
+    }
+
+    let inputs = document.querySelectorAll('.form__field');
+    inputs.forEach((input) => {
+        input.addEventListener('click', (e) => {
+            e.target.parentNode.querySelector('.form__label').classList.add('active-label');
+        });
+        input.addEventListener('keyup', (e) => {
+            if (e.keyCode === 9) {
+                e.target.parentNode.querySelector('.form__label').classList.add('active-label');
+            }
+        });
+        input.addEventListener('keydown', (e) => {
+            if (e.keyCode === 9 && e.target.value === "") {
+                e.target.parentNode.querySelector('.form__label').classList.remove('active-label');
+            }
+        });
+    });
+</script>
+
+</html>
