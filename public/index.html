@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1a1f78895e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Каталог</title>
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="container">
+                <div class="header__inner">
+                    <div class="header__left">
+                        <div class="logo">
+                            <a href="/" class="logo__link">
+                                <img src="images/logo.svg" alt="" class="logo__img">
+                            </a>
+                        </div>
+                        <filter-products></filter-products>
+                    </div>
+                    <div class="header__right">
+                        <div class="header-icons">
+                            <div class="header-icons__item">
+                                <div aria-label="menu" class="burger-btn">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="header-icons__item">
+                                <a class="profile" href="registration.html"></a>
+                            </div>
+                            <cart ref="cart"></cart>
+                        </div>
+                    </div>
+                </div>
+                <nav class="menu">
+                    <span class="menu__title">MENU</span>
+                    <ul class="menu__list">
+                        <li>
+                            <a href="#" class="menu__link">MAN</a>
+                            <ul class="menu__sub">
+                                <li>
+                                    <a href="#" class="menu__sub-link">Accessories</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">Bags</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">Denim</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">T-Shirts</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu__link">WOMAN</a>
+                            <ul class="menu__sub">
+                                <li>
+                                    <a href="#" class="menu__sub-link">Accessories</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">Jackets & Coats</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">Polos</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">T-Shirts</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">Shirts</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="menu__link">Kids</a>
+                            <ul class="menu__sub">
+                                <li>
+                                    <a href="#" class="menu__sub-link">Accessories</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">Jackets & Coats</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">Polos</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">T-Shirts</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">Shirts</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">Bags</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="menu__sub-link">Bags</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="close-icon"></div>
+                </nav>
+            </div>
+        </header>
+        <section class="category">
+            <div class="container">
+                <div class="category__inner">
+                    <h2 class="category__title">New Arrivals</h2>
+                    <nav aria-label="Breadcrumb" class="breadcrumb">
+                        <ul class="breadcrumb__list">
+                            <li>
+                                <a href="#" class="breadcrumb__link">HOME</a>
+                            </li>
+                            <li>
+                                <a href="#" class="breadcrumb__link">MEN</a>
+                            </li>
+                            <li class="active">
+                                <span aria-current="page">NEW ARRIVALS</span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <section class="catalog">
+            <div class="container">
+                <div class="catalog__filters">
+                    <div class="filter">
+                        <div class="filter__inner">
+                            <div class="filter__btn">
+                                <span>Filter</span>
+                            </div>
+                            <div class="filter__btn-mobile"></div>
+                            <details class="category-list">
+                                <summary class="category-list__title">
+                                    Category
+                                </summary>
+                                <div class="category-list__item">
+                                    <ul>
+                                        <li><a href="#">Accessories</a></li>
+                                        <li><a href="#">Bags</a></li>
+                                        <li><a href="#">Denim</a></li>
+                                        <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
+                                        <li><a href="#">Jackets &amp; Coats</a></li>
+                                        <li><a href="#">Polos</a></li>
+                                        <li><a href="#">Shirts</a></li>
+                                        <li><a href="#">Shoes</a></li>
+                                        <li><a href="#">Shorts</a></li>
+                                        <li><a href="#">Sweaters &amp; Knits</a></li>
+                                        <li><a href="#">T-Shirts</a></li>
+                                        <li><a href="#">Tanks</a></li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <details class="category-list">
+                                <summary class="category-list__title">
+                                    Brand
+                                </summary>
+                                <div class="category-list__item">
+                                    <ul>
+                                        <li><a href="#">Accessories</a></li>
+                                        <li><a href="#">Bags</a></li>
+                                        <li><a href="#">Denim</a></li>
+                                        <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
+                                        <li><a href="#">Jackets &amp; Coats</a></li>
+                                        <li><a href="#">Polos</a></li>
+                                        <li><a href="#">Shirts</a></li>
+                                        <li><a href="#">Shoes</a></li>
+                                        <li><a href="#">Shorts</a></li>
+                                        <li><a href="#">Sweaters &amp; Knits</a></li>
+                                        <li><a href="#">T-Shirts</a></li>
+                                        <li><a href="#">Tanks</a></li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <details class="category-list">
+                                <summary class="category-list__title">
+                                    DESIGNER
+                                </summary>
+                                <div class="category-list__item">
+                                    <ul>
+                                        <li><a href="#">Accessories</a></li>
+                                        <li><a href="#">Bags</a></li>
+                                        <li><a href="#">Denim</a></li>
+                                        <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
+                                        <li><a href="#">Jackets &amp; Coats</a></li>
+                                        <li><a href="#">Polos</a></li>
+                                        <li><a href="#">Shirts</a></li>
+                                        <li><a href="#">Shoes</a></li>
+                                        <li><a href="#">Shorts</a></li>
+                                        <li><a href="#">Sweaters &amp; Knits</a></li>
+                                        <li><a href="#">T-Shirts</a></li>
+                                        <li><a href="#">Tanks</a></li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="dropdown-filters">
+                        <div class="dropdown trending">
+                            <span class="dropdown__title">trending now</span>
+                        </div>
+                        <div class="dropdown size">
+                            <span class="dropdown__title">size</span>
+                            <!-- <div class="dropdown__content">
+                                <form action="#">
+                                    <div class="dropdown__field">
+                                        <label for=""></label>
+                                        <input type="checkbox" name="" id="">
+                                    </div>
+                                </form>
+                            </div> -->
+                        </div>
+                        <div class="dropdown price">
+                            <span class="dropdown__title">price</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-list">
+                    <products ref="products"></products>
+                    <div class="pagination-block">
+                        <nav aria-label="Page navigation" class="pagination-container">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous">
+                                        <span aria-hidden="true" class="page-prev"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </a>
+                                </li>
+                                <li class="page-item current-page">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">3</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">4</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">5</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">6</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">...</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">20</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true" class="page-next"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="advantages">
+            <div class="container">
+                <div class="advantages__inner">
+                    <div class="advantages__item">
+                        <div class="advantages__img-container">
+                            <img src="images/icon-1.svg" alt="" class="advantages__img">
+                        </div>
+                        <div class="advantages__info">
+                            <div class="advantages__title">Free Delivery</div>
+                            <div class="advantages__descr">
+                                Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="advantages__item">
+                        <div class="advantages__img-container">
+                            <img src="images/icon-2.svg" alt="" class="advantages__img">
+                        </div>
+                        <div class="advantages__info">
+                            <div class="advantages__title">Sales & discounts</div>
+                            <div class="advantages__descr">
+                                Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="advantages__item">
+                        <div class="advantages__img-container">
+                            <img src="images/icon-3.svg" alt="" class="advantages__img">
+                        </div>
+                        <div class="advantages__info">
+                            <div class="advantages__title">Quality assurance</div>
+                            <div class="advantages__descr">
+                                Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="subscribe">
+            <div class="container">
+                <div class="subscribe__inner">
+                    <div class="subscribe__left">
+                        <figure class="subscribe__callback">
+                            <img src="images/person-img.png" alt="" class="person__img" width="96" height="96">
+                            <figcaption class="subscribe__callback-text">
+                                “Vestibulum quis porttitor dui! Quisque viverra nunc mi, a pulvinar purus condimentum“
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="subscribe__right">
+                        <h4 class="subscribe__title">SUBSCRIBE</h4>
+                        <p class="subscribe__text">FOR OUR NEWLETTER AND PROMOTION</p>
+                        <form action="#" class="subscribe__form">
+                            <div class="subscribe__form-container">
+                                <input class="subscribe__field" type="text" placeholder="Enter your email" required>
+                                <input class="subscribe__btn" type="submit" value="Subscribe">
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__inner">
+                    <div class="footer__copy">
+                        © 2021 Brand All Rights Reserved.
+                    </div>
+                    <div class="footer__social">
+                        <ul class="social-list">
+                            <li>
+                                <a href="#" class="social-list__link facebook-icon"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-list__link insta-icon"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-list__link pinterest-icon"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-list__link twitter-icon"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="js/ProductsComponent.js"></script>
+    <script src="js/CartComponent.js"></script>
+    <script src="js/FilterComp.js"></script>
+    <!-- <script src="js/main.js"></script> -->
+    <script>
+        let burgerBtn = document.querySelector('.burger-btn');
+        let navMenu = document.querySelector('.menu');
+        let closeMenuBtn = document.querySelector('.close-icon');
+        let introInner = document.querySelector('.intro__inner');
+        burgerBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('open-menu');
+            navMenu.style.height = `${introInner.clientHeight}`;
+        });
+        closeMenuBtn.addEventListener('click', function() {
+            navMenu.classList.remove('open-menu');
+        });
+    </script>
+</body>
+
+</html>
